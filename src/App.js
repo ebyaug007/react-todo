@@ -17,6 +17,10 @@ export default function App() {
       })
     })
   }
+  const removeTaskHander = (task) => {
+    const newTodoList = todo.filter((todoTask) => todoTask.id !== task.id);
+    setTodo(newTodoList);
+  }
 
     return (
       <div>
@@ -25,7 +29,7 @@ export default function App() {
           todo.map((task) => {
             return (
               <li key={task.id} >
-                <DisplayTodo task={task} onEditTask={editTaskHandler} />
+                <DisplayTodo task={task} onEditTask={editTaskHandler} onRemoveTask={removeTaskHander} />
               </li>
             )
           })
