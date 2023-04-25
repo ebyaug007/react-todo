@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DisplayTodo from "./DisplayTodo";
 import InputForm from "./InputForm"
+
 export default function App() {
 
   const [todo, setTodo] = useState([]);

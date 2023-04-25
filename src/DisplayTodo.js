@@ -31,12 +31,12 @@ export default function DisplayTodo(props)
     }
     const task = props.task.task;
     return (<>
-            {!edit && !completed && task}
+            {!edit && !completed && <label> {task}</label>}
             {completed && <s>{task}</s>}
             {edit && !completed && <input type="text" value={newTask} onChange={textEditHandler}></input>}
             {!edit && !completed && <button onClick={toggleCompletedHandler}>Completed</button>}
-            {!edit && !completed && <button onClick={toggleEditHandler}>edit</button>}
-            {edit && !completed && <><button onClick={toggleSaveHandler}>save</button> <button onClick={toggleEditHandler}>cancel</button></>}
-            <button onClick={toggleRemoveHandler}>remove</button>        
+            {!edit && !completed && <button onClick={toggleEditHandler}>Edit</button>}
+            {edit && !completed && <><button onClick={toggleSaveHandler}>Save</button> <button onClick={toggleEditHandler}>Cancel</button></>}
+            <button onClick={toggleRemoveHandler}>Remove</button>        
     </>);
 }
