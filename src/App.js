@@ -1,9 +1,11 @@
 import { useState } from "react";
 import DisplayTodo from "./DisplayTodo";
 import InputForm from "./InputForm"
+import { MyContext } from "./MyContext";
 
 export default function App() {
 
+  const [loggedIn, setLoggedIn] = useState(false);
   const [todo, setTodo] = useState([]);
 
   const inputTaskHandler = (task) => {
@@ -25,6 +27,7 @@ export default function App() {
 
     return (
       <div>
+        <MyContext.Provider value={{loggedIn,setLoggedIn}}>
         <InputForm onInputTask={inputTaskHandler} />
         {
           todo.map((task) => {
@@ -35,6 +38,7 @@ export default function App() {
             )
           })
         }
+        </MyContext.Provider>
       </div>
     )
 
